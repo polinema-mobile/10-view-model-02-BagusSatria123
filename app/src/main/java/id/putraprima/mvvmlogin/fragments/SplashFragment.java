@@ -28,7 +28,7 @@ public class SplashFragment extends Fragment {
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-//                Intent intent = Intent(SplashFragment.this, MainActivity.class)
+//                Intent intent = Intent(SplashFragment.this, LoginFragment.class)
 //            }
 //        },3600);
     }
