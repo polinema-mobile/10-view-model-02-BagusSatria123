@@ -4,12 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="fragment"
-            type="id.putraprima.mvvmlogin.fragments.HomeFragment" />
-        <variable
-            name="viewModel"
-            type="id.putraprima.mvvmlogin.viewmodels.HomeViewModel" />
 
     </data>
 
@@ -28,7 +22,6 @@
             android:layout_marginBottom="32dp"
             android:text="Login"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:onClick="@{()->viewModel.doLogin()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
