@@ -4,20 +4,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import id.putraprima.mvvmlogin.R;
 import id.putraprima.mvvmlogin.databinding.FragmentLoginBinding;
 import id.putraprima.mvvmlogin.models.FormLogin;
-import id.putraprima.mvvmlogin.viewmodels.LoginViewModel;
-import id.putraprima.mvvmlogin.viewmodels.LoginViewModelFactory;
+import id.putraprima.mvvmlogin.viewmodels.HomeViewModel;
+import id.putraprima.mvvmlogin.viewmodels.HomeViewModelFactory;
 
 public class LoginFragment extends Fragment {
-    private LoginViewModel loginViewModel;
+    private HomeViewModel homeViewModel;
 
 
     public LoginFragment() {
@@ -32,10 +30,10 @@ public class LoginFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_login, container, false);
         final FragmentLoginBinding binding = FragmentLoginBinding.inflate(inflater, container, false);
         final View view = binding.getRoot();
-        //
-        LoginViewModelFactory mainActivityViewModelFactory = new LoginViewModelFactory(new FormLogin());
-        loginViewModel = new ViewModelProvider(this, mainActivityViewModelFactory).get(LoginViewModel.class);
-        binding.setViewModel(loginViewModel);
+
+        HomeViewModelFactory mainActivityViewModelFactory = new HomeViewModelFactory(new FormLogin());
+        homeViewModel = new ViewModelProvider(this, mainActivityViewModelFactory).get(HomeViewModel.class);
+        binding.setViewModel(homeViewModel);
         binding.setLifecycleOwner(this);
 
 //        binding.btnLogin.setOnClickListener(new View.OnClickListener() {

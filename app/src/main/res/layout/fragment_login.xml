@@ -9,7 +9,7 @@
             type="id.putraprima.mvvmlogin.fragments.HomeFragment" />
         <variable
             name="viewModel"
-            type="id.putraprima.mvvmlogin.viewmodels.LoginViewModel" />
+            type="id.putraprima.mvvmlogin.viewmodels.HomeViewModel" />
 
     </data>
 

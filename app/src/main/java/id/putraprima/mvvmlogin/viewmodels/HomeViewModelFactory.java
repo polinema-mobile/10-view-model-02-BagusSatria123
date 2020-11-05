@@ -6,18 +6,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 import id.putraprima.mvvmlogin.models.FormLogin;
 
-public class LoginViewModelFactory implements ViewModelProvider.Factory {
+public class HomeViewModelFactory implements ViewModelProvider.Factory {
     private FormLogin formLogin;
 
-    public LoginViewModelFactory(FormLogin formLogin) {
+    public HomeViewModelFactory(FormLogin formLogin) {
         this.formLogin = formLogin;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if(modelClass.isAssignableFrom(LoginViewModel.class)){
-            return (T) new LoginViewModel(formLogin);
+        if(modelClass.isAssignableFrom(HomeViewModel.class)){
+            return (T) new HomeViewModel(formLogin);
         }
         throw new IllegalArgumentException("Viewmodel Yang Diminta MainActivityViewModel");
     }
