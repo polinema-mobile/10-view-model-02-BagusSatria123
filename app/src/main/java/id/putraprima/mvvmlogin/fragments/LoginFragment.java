@@ -13,13 +13,12 @@ import android.view.ViewGroup;
 
 import id.putraprima.mvvmlogin.R;
 import id.putraprima.mvvmlogin.databinding.FragmentLoginBinding;
-import id.putraprima.mvvmlogin.viewmodels.LoginViewModelFactory;
-import id.putraprima.mvvmlogin.viewmodels.LoginViewModels;
-import id.putraprima.mvvmlogin.models.User;
-
+import id.putraprima.mvvmlogin.models.ModelLogin;
+import id.putraprima.mvvmlogin.viewmodels.ViewModelLogin;
+import id.putraprima.mvvmlogin.viewmodels.ViewModelLoginFactory;
 
 public class LoginFragment extends Fragment {
-    private LoginViewModels loginVieModels;
+    private ViewModelLogin viewModelLogin;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -30,11 +29,23 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentLoginBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
-        LoginViewModelFactory viewModelLoginFactory = new LoginViewModelFactory(new User("Bagus@gmail.com","123456"));
-        loginVieModels = new ViewModelProvider(this, viewModelLoginFactory).get(LoginViewModels.class);
+        ViewModelLoginFactory viewModelLoginFactory = new ViewModelLoginFactory(new ModelLogin("Bagus@gmail.com","123456"));
+        viewModelLogin = new ViewModelProvider(this, viewModelLoginFactory).get(ViewModelLogin.class);
         View view = binding.getRoot();
-        binding.setViewModel(loginVieModels);
+        binding.setViewModel(viewModelLogin);
         binding.setLifecycleOwner(this);
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewModelLogin.isLogin()){
+                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
+                }else{
+                    binding.editTextEmail.setError("Username harus sesuai");
+                    binding.editTextPassword.setError("Password harus sesuai");
+                }
+            }
+        });
         return view;
+
     }
 }
