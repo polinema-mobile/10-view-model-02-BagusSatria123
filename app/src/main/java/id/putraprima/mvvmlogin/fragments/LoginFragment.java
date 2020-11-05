@@ -30,7 +30,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentLoginBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
-        LoginViewModelFactory viewModelLoginFactory = new LoginViewModelFactory(new User("alizarizqi@gmail.com","aliza"));
+        LoginViewModelFactory viewModelLoginFactory = new LoginViewModelFactory(new User("Bagus@gmail.com","123456"));
         loginVieModels = new ViewModelProvider(this, viewModelLoginFactory).get(LoginViewModels.class);
         View view = binding.getRoot();
         binding.setViewModel(loginVieModels);
