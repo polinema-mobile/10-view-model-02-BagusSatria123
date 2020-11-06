@@ -11,12 +11,11 @@ import android.view.ViewGroup;
 
 import id.putraprima.mvvmlogin.R;
 import id.putraprima.mvvmlogin.databinding.FragmentHomeBinding;
-import id.putraprima.mvvmlogin.viewmodels.ViewModelHome;
+import id.putraprima.mvvmlogin.databinding.FragmentLoginBinding;
+import id.putraprima.mvvmlogin.viewmodels.HomeViewModels;
 
 public class HomeFragment extends Fragment {
-
-    private ViewModelHome viewModelHome;
-
+    private HomeViewModels homeViewModels;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -26,10 +25,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentHomeBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
-        View view = binding.getRoot();
-        binding.setViewModel(viewModelHome);
+        binding.setViewModel(homeViewModels);
         binding.setLifecycleOwner(this);
-        return view;
-
+        return binding.getRoot();
     }
 }
