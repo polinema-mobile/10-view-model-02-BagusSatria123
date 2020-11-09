@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ModelLogin implements Parcelable {
-    public String password="aliza";
-    public String username ="alizarizqi@gmail.com";
+    public String password="bagus";
+    public String username ="bagus@gmail.com";
 
     public ModelLogin(){
 
