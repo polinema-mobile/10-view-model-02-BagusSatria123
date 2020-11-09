@@ -1,8 +1,9 @@
 package id.putraprima.mvvmlogin.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -13,30 +14,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import id.putraprima.mvvmlogin.R;
-import id.putraprima.mvvmlogin.databinding.FragmentLoginBinding;
 import id.putraprima.mvvmlogin.databinding.FragmentSplashBinding;
 
 public class SplashFragment extends Fragment {
     Handler handler;
+    FragmentSplashBinding binding;
+
     public SplashFragment() {
         // Required empty public constructor
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentSplashBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false);
-        binding.setLifecycleOwner(this);
-        handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        return inflater.inflate(R.layout.fragment_splash, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_loginFragment);
+                Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_loginFragment);
             }
-        },3000);
-        return binding.getRoot();
+        };
+
+        handler.postDelayed(runnable, 3000);
     }
 }
