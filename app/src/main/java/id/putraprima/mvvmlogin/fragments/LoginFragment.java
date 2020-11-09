@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import id.putraprima.mvvmlogin.R;
 import id.putraprima.mvvmlogin.databinding.FragmentLoginBinding;
-import id.putraprima.mvvmlogin.databinding.FragmentLoginBindingImpl;
+//import id.putraprima.mvvmlogin.databinding.FragmentLoginBindingImpl;
 import id.putraprima.mvvmlogin.models.ModelLogin;
 import id.putraprima.mvvmlogin.viewmodels.ViewModelLogin;
 import id.putraprima.mvvmlogin.viewmodels.ViewModelLoginFactory;
@@ -34,7 +34,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentLoginBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
-        ViewModelLoginFactory viewModelLoginFactory = new ViewModelLoginFactory(new ModelLogin("alizarizqi@gmail.com","aliza"));
+        ViewModelLoginFactory viewModelLoginFactory = new ViewModelLoginFactory(new ModelLogin("bagus@gmail.com","bagus123456"));
         viewModelLogin = new ViewModelProvider(this, viewModelLoginFactory).get(ViewModelLogin.class);
         View view = binding.getRoot();
         binding.setViewModel(viewModelLogin);
